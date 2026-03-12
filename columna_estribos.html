@@ -66,45 +66,49 @@
 
 function calcular(){
 
-let h=parseFloat(document.getElementById("altura").value);
-
-let sep=parseFloat(document.getElementById("separacion").value);
+let altura=parseFloat(document.getElementById("altura").value);
 
 let ancho=parseFloat(document.getElementById("ancho").value);
 
 let largo=parseFloat(document.getElementById("largo").value);
 
-let barras=parseFloat(document.getElementById("varillas").value);
+let separacion=parseFloat(document.getElementById("separacion").value);
 
-let estribos=(h/sep)+1;
+let varillasLong=parseFloat(document.getElementById("varillasLong").value);
 
-let perimetro=(ancho+largo)*2;
+/* estribos */
 
-let aceroEstribos=perimetro*estribos;
+let cantidadEstribos=Math.ceil(altura/separacion);
 
-let aceroLong=barras*h;
+let perimetro=2*(ancho+largo);
 
-let totalAcero=aceroEstribos+aceroLong;
+let longitudEstribos=perimetro*cantidadEstribos;
+
+let varillasEstribos=Math.ceil(longitudEstribos/6);
+
+/* longitudinal */
+
+let longitudLong=altura*varillasLong;
+
+let varillasLongitudinal=Math.ceil(longitudLong/6);
 
 document.getElementById("resultado").innerHTML=
 
-"Estribos: "+Math.ceil(estribos)+"<br><br>"+
+"Estribos necesarios: "+cantidadEstribos+"<br><br>"+
 
-"Longitud acero estribos: "+aceroEstribos.toFixed(2)+" m<br>"+
+"Longitud total estribos: "+longitudEstribos.toFixed(2)+" m<br><br>"+
 
 "Varillas para estribos (6m): "+varillasEstribos+"<br><br>"+
 
-"Longitud acero longitudinal: "+aceroLong.toFixed(2)+" m<br><br>"+
-
-"Acero total: "+totalAcero.toFixed(2)+" m";
+"Longitud acero longitudinal: "+longitudLong.toFixed(2)+" m<br><br>"+
 
 "Varillas longitudinales (6m): "+varillasLongitudinal;
 
 }
 
 </script>
-
 </body>
 
 
 </html>
+
