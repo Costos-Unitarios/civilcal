@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Calculadora de Concreto</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" class="active">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Calculadora de Concreto</h2>
+
+<input id="largo" type="number" placeholder="Largo (m)"><br>
+
+<input id="ancho" type="number" placeholder="Ancho (m)"><br>
+
+<input id="alto" type="number" placeholder="Espesor (m)"><br><br>
+
+<select id="resistencia">
+
+<option value="7">f'c 210 kg/cm²</option>
+<option value="8">f'c 250 kg/cm²</option>
+<option value="9">f'c 280 kg/cm²</option>
+
+</select>
+
+<br><br>
+
+<input id="precio" type="number" placeholder="Precio saco cemento ($)"><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let largo=parseFloat(document.getElementById("largo").value);
+let ancho=parseFloat(document.getElementById("ancho").value);
+let alto=parseFloat(document.getElementById("alto").value);
+
+let sacos_m3=parseFloat(document.getElementById("resistencia").value);
+let precio=parseFloat(document.getElementById("precio").value);
+
+let volumen=largo*ancho*alto;
+
+let cemento=volumen*sacos_m3;
+let arena=volumen*0.5;
+let grava=volumen*0.8;
+
+let mixer=volumen/7;
+
+let costo=cemento*precio;
+
+document.getElementById("resultado").innerHTML=
+
+"<b>Volumen:</b> "+volumen.toFixed(2)+" m³<br><br>"+
+
+"<b>Cemento:</b> "+cemento.toFixed(1)+" sacos<br>"+
+
+"<b>Arena:</b> "+arena.toFixed(2)+" m³<br>"+
+
+"<b>Grava:</b> "+grava.toFixed(2)+" m³<br><br>"+
+
+"<b>Viajes de mixer:</b> "+mixer.toFixed(2)+"<br><br>"+
+
+"<b>Costo cemento:</b> $"+costo.toFixed(2);
+
+}
+
+</script>
+
+</body>
+
+</html>

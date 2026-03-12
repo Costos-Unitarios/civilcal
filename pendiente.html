@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Pendiente</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" class="active">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Calculadora de Pendiente</h2>
+
+<input id="altura" placeholder="Diferencia de nivel (m)">
+
+<br>
+
+<input id="distancia" placeholder="Distancia horizontal (m)">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let h=parseFloat(document.getElementById("altura").value);
+let d=parseFloat(document.getElementById("distancia").value);
+
+let pendiente=(h/d)*100;
+
+document.getElementById("resultado").innerHTML=
+
+"Pendiente: "+pendiente.toFixed(2)+" %";
+
+}
+
+</script>
+
+</body>
+
+</html>

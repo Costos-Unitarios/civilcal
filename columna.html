@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Columna / Viga</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" class="active">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Concreto para Columna o Viga</h2>
+
+<input id="largo" placeholder="Largo (m)">
+<br>
+
+<input id="ancho" placeholder="Ancho (m)">
+<br>
+
+<input id="alto" placeholder="Altura (m)">
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let l=parseFloat(document.getElementById("largo").value);
+let a=parseFloat(document.getElementById("ancho").value);
+let h=parseFloat(document.getElementById("alto").value);
+
+let volumen=l*a*h;
+
+let cemento=volumen*7;
+let arena=volumen*0.5;
+let grava=volumen*0.7;
+
+document.getElementById("resultado").innerHTML=
+
+"Volumen concreto: "+volumen.toFixed(2)+" m³<br><br>"+
+
+"Cemento: "+cemento.toFixed(1)+" sacos<br>"+
+"Arena: "+arena.toFixed(2)+" m³<br>"+
+"Grava: "+grava.toFixed(2)+" m³";
+
+}
+
+</script>
+
+</body>
+</html>

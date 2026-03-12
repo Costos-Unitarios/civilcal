@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Calculadora de Acero</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" class="active">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+
+</div>
+
+<div class="contenedor">
+
+<h2>Cálculo de Acero</h2>
+
+<input id="diametro" type="number" placeholder="Diámetro mm">
+
+<input id="longitud" type="number" placeholder="Longitud m">
+
+<input id="cantidad" type="number" placeholder="Cantidad varillas">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let d=parseFloat(document.getElementById("diametro").value);
+let L=parseFloat(document.getElementById("longitud").value);
+let c=parseFloat(document.getElementById("cantidad").value);
+
+let peso=0.00617*d*d*L*c;
+
+let quintales=peso/45.36;
+
+document.getElementById("resultado").innerHTML=
+
+"Peso total: "+peso.toFixed(2)+" kg<br>"+
+
+"Quintales: "+quintales.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
