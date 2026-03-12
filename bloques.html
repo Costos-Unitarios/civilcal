@@ -3,76 +3,7 @@
 
 <head>
 
-<title>Calculadora de Bloques</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-
-<div class="menu">
-
-<a href="index.html" class="active">Inicio</a>
-<a href="concreto.html">Concreto</a>
-<a href="bloques.html">Bloques</a>
-<a href="acero.html">Acero</a>
-<a href="excavacion.html">Excavación</a>
-<a href="pendiente.html">Pendiente</a>
-<a href="zapata.html">Zapata</a>
-
-</div>
-
-
-<div class="contenedor">
-
-<h2>Calculadora de Bloques</h2>
-
-<input id="largo" type="number" placeholder="Largo del muro (m)">
-
-<br>
-
-<input id="alto" type="number" placeholder="Altura del muro (m)">
-
-<br><br>
-
-<button onclick="calcular()">Calcular</button>
-
-<p id="resultado"></p>
-
-</div>
-
-<script>
-
-function calcular(){
-
-let largo=parseFloat(document.getElementById("largo").value);
-let alto=parseFloat(document.getElementById("alto").value);
-
-let area=largo*alto;
-
-let bloques=area*12.5;
-
-document.getElementById("resultado").innerHTML=
-
-"Área del muro: "+area.toFixed(2)+" m²<br><br>"+
-
-"Bloques necesarios: "+Math.ceil(bloques);
-
-}
-
-</script>
-
-</body>
-
-</html><!DOCTYPE html>
-<html>
-
-<head>
-
-<title>Calculadora de Bloques</title>
+<title>Calculadora de Muro de Bloques</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -85,15 +16,27 @@ document.getElementById("resultado").innerHTML=
 <div class="menu">
 
 <a href="index.html">Inicio</a>
-<a href="bloques.html" class="active">Bloques</a>
-
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html"  class="active">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+<a href="mamposteria.html">Mamposteria</a>
+<a href="suelo_cemento.html">Suelo Cemento</a>
+<a href="tubos.html">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html">Varilla</a>
 </div>
+
 
 <div class="contenedor">
 
 <h2>Calculadora de Muro de Bloques</h2>
 
-<input id="largo" type="number" placeholder="Largo muro (m)">
+<input id="largo" type="number" placeholder="Longitud muro (m)">
 
 <br>
 
@@ -112,25 +55,38 @@ document.getElementById("resultado").innerHTML=
 function calcular(){
 
 let largo=parseFloat(document.getElementById("largo").value);
+
 let alto=parseFloat(document.getElementById("alto").value);
 
 let area=largo*alto;
 
 let bloques=area*12.5;
 
+let mitades=bloques*0.20;
+
+let enteros=bloques-mitades;
+
 let cemento=bloques/50;
 
-let arena=cemento*0.05;
+let arena=cemento*0.29;
+
+let agua=cemento*0.048;
 
 document.getElementById("resultado").innerHTML=
 
-"Área muro: "+area.toFixed(2)+" m²<br><br>"+
+"Área: "+area.toFixed(2)+" m²<br><br>"+
 
-"Bloques: "+Math.ceil(bloques)+"<br>"+
+"Cantidad de bloques: "+bloques.toFixed(0)+" U/m²<br><br>"+
 
-"Cemento: "+cemento.toFixed(1)+" sacos<br>"+
+"Mitades: "+Math.ceil(mitades)+" U<br>"+
 
-"Arena: "+arena.toFixed(2)+" m³";
+"Enteros: "+Math.ceil(enteros)+" U<br><br>"+
+
+"Cemento: "+Math.ceil(cemento)+" bolsas<br>"+
+
+"Arena: "+arena.toFixed(2)+" m³<br>"+
+
+"Agua: "+agua.toFixed(2)+" m³";
 
 }
 
