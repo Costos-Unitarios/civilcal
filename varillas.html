@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Calculadora de Varillas</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+<a href="mamposteria.html">Mamposteria</a>
+<a href="suelo_cemento.html">Suelo Cemento</a>
+<a href="tubos.html">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html"  class="active">Varilla</a>
+</div>
+
+
+<div class="contenedor">
+
+<h2>Calculadora de Varillas</h2>
+
+<input id="longitud" type="number" placeholder="Longitud total (m)">
+
+<br>
+
+<select id="diametro">
+
+<option value="0.56">Varilla #3</option>
+<option value="0.99">Varilla #4</option>
+<option value="1.56">Varilla #5</option>
+<option value="2.24">Varilla #6</option>
+
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let longitud=parseFloat(document.getElementById("longitud").value);
+
+let pesoMetro=parseFloat(document.getElementById("diametro").value);
+
+let pesoTotal=longitud*pesoMetro;
+
+let quintales=pesoTotal/45.36;
+
+let varillas6=longitud/6;
+
+document.getElementById("resultado").innerHTML=
+
+"Longitud total: "+longitud.toFixed(2)+" m<br><br>"+
+
+"Peso total: "+pesoTotal.toFixed(2)+" kg<br>"+
+
+"Total acero: "+quintales.toFixed(2)+" quintales<br><br>"+
+
+"Varillas comerciales (6m): "+Math.ceil(varillas6);
+
+}
+
+</script>
+
+</body>
+
+</html>

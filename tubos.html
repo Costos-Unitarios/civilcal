@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Área de Tubos</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html">Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+<a href="mamposteria.html">Mamposteria</a>
+<a href="suelo_cemento.html">Suelo Cemento</a>
+<a href="tubos.html"  class="active">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html">Varilla</a>
+</div>
+
+
+<div class="contenedor">
+
+<h2>Calculadora de Tubos</h2>
+
+<input id="diametro" type="number" placeholder="Diámetro del tubo (m)">
+
+<br>
+
+<input id="longitud" type="number" placeholder="Longitud del tubo (m)">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let D=parseFloat(document.getElementById("diametro").value);
+
+let L=parseFloat(document.getElementById("longitud").value);
+
+let areaInterna=(Math.PI*D*D)/4;
+
+let areaSuperficie=Math.PI*D*L;
+
+let volumen=areaInterna*L;
+
+document.getElementById("resultado").innerHTML=
+
+"Área interna: "+areaInterna.toFixed(3)+" m²<br><br>"+
+
+"Área superficial: "+areaSuperficie.toFixed(3)+" m²<br><br>"+
+
+"Volumen interno: "+volumen.toFixed(3)+" m³";
+
+}
+
+</script>
+
+</body>
+
+</html>

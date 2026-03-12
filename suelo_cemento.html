@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Suelo Cemento</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" >Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+<a href="mamposteria.html">Mamposteria</a>
+<a href="suelo_cemento.html" class="active">Suelo Cemento</a>
+<a href="tubos.html">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html">Varilla</a>
+</div>
+
+
+<div class="contenedor">
+
+<h2>Calculadora de Suelo Cemento</h2>
+
+<input id="largo" type="number" placeholder="Largo (m)">
+
+<br>
+
+<input id="ancho" type="number" placeholder="Ancho (m)">
+
+<br>
+
+<input id="espesor" type="number" placeholder="Espesor (m)">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let largo=parseFloat(document.getElementById("largo").value);
+
+let ancho=parseFloat(document.getElementById("ancho").value);
+
+let espesor=parseFloat(document.getElementById("espesor").value);
+
+let volumen=largo*ancho*espesor;
+
+let cemento=volumen*6;
+
+let agua=volumen*120;
+
+document.getElementById("resultado").innerHTML=
+
+"Volumen suelo: "+volumen.toFixed(2)+" m³<br><br>"+
+
+"Cemento: "+Math.ceil(cemento)+" sacos<br>"+
+
+"Agua: "+agua.toFixed(0)+" litros";
+
+}
+
+</script>
+
+</body>
+
+</html>
