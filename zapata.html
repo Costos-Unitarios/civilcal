@@ -2,9 +2,13 @@
 <html>
 
 <head>
-<title>Zapata</title>
+
+<title>Calculadora de Zapatas</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -23,15 +27,22 @@
 
 <div class="contenedor">
 
-<h2>Calculadora de Zapata</h2>
+<h2>Calculadora de Zapatas</h2>
 
-<input id="largo" placeholder="Largo zapata (m)">
+<input id="largo" type="number" placeholder="Largo zapata (m)">
+
 <br>
 
-<input id="ancho" placeholder="Ancho zapata (m)">
+<input id="ancho" type="number" placeholder="Ancho zapata (m)">
+
 <br>
 
-<input id="espesor" placeholder="Espesor (m)">
+<input id="espesor" type="number" placeholder="Espesor (m)">
+
+<br>
+
+<input id="cantidad" type="number" placeholder="Cantidad de zapatas">
+
 <br><br>
 
 <button onclick="calcular()">Calcular</button>
@@ -44,23 +55,40 @@
 
 function calcular(){
 
-let l=parseFloat(document.getElementById("largo").value);
-let a=parseFloat(document.getElementById("ancho").value);
-let e=parseFloat(document.getElementById("espesor").value);
+let largo=parseFloat(document.getElementById("largo").value);
 
-let volumen=l*a*e;
+let ancho=parseFloat(document.getElementById("ancho").value);
 
-let cemento=volumen*7;
+let espesor=parseFloat(document.getElementById("espesor").value);
+
+let cantidad=parseFloat(document.getElementById("cantidad").value);
+
+let volumen=largo*ancho*espesor;
+
+let volumenTotal=volumen*cantidad;
+
+let cemento=volumenTotal*7;
+
+let arena=volumenTotal*0.5;
+
+let grava=volumenTotal*0.7;
 
 document.getElementById("resultado").innerHTML=
 
-"Volumen concreto: "+volumen.toFixed(2)+" m³<br><br>"+
+"Volumen por zapata: "+volumen.toFixed(2)+" m³<br><br>"+
 
-"Cemento estimado: "+cemento.toFixed(1)+" sacos";
+"Volumen total: "+volumenTotal.toFixed(2)+" m³<br><br>"+
+
+"Cemento: "+Math.ceil(cemento)+" sacos<br>"+
+
+"Arena: "+arena.toFixed(2)+" m³<br>"+
+
+"Grava: "+grava.toFixed(2)+" m³";
 
 }
 
 </script>
 
 </body>
+
 </html>
