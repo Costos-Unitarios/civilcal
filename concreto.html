@@ -44,15 +44,14 @@
 
 <select id="resistencia">
 
-<option value="7">f'c 210 kg/cm²</option>
-<option value="8">f'c 250 kg/cm²</option>
-<option value="9">f'c 280 kg/cm²</option>
+<option value="7">f'c 180 kg/cm²</option>
+<option value="8">f'c 210 kg/cm²</option>
+<option value="9">f'c 250 kg/cm²</option>
+<option value="10">f'c 280 kg/cm²</option>
 
 </select>
 
 <br><br>
-
-<input id="precio" type="number" placeholder="Precio saco cemento ($)"><br>
 
 <button onclick="calcular()">Calcular</button>
 
@@ -91,9 +90,6 @@ document.getElementById("resultado").innerHTML=
 
 "<b>Grava:</b> "+grava.toFixed(2)+" m³<br><br>"+
 
-"<b>Viajes de mixer:</b> "+mixer.toFixed(2)+"<br><br>"+
-
-"<b>Costo cemento:</b> $"+costo.toFixed(2);
 
 }
 
@@ -102,3 +98,4 @@ document.getElementById("resultado").innerHTML=
 </body>
 
 </html>
+
