@@ -15,25 +15,36 @@
 
 <div class="menu">
 
-<a href="index.html" class="active">Inicio</a>
+<a href="index.html">Inicio</a>
 <a href="concreto.html">Concreto</a>
 <a href="bloques.html">Bloques</a>
-<a href="acero.html">Acero</a>
+<a href="acero.html"  class="active">Acero</a>
 <a href="excavacion.html">Excavación</a>
 <a href="pendiente.html">Pendiente</a>
 <a href="zapata.html">Zapata</a>
-
+<a href="mamposteria.html">Mamposteria</a>
+<a href="suelo_cemento.html">Suelo Cemento</a>
+<a href="tubos.html">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html">Varilla</a>
 </div>
+
 
 <div class="contenedor">
 
-<h2>Cálculo de Acero</h2>
+<h2>Calculadora de Acero</h2>
 
-<input id="diametro" type="number" placeholder="Diámetro mm">
+<input id="largo" type="number" placeholder="Largo (m)">
 
-<input id="longitud" type="number" placeholder="Longitud m">
+<br>
 
-<input id="cantidad" type="number" placeholder="Cantidad varillas">
+<input id="ancho" type="number" placeholder="Ancho (m)">
+
+<br>
+
+<input id="separacion" type="number" placeholder="Separación acero (m)">
 
 <br><br>
 
@@ -47,23 +58,35 @@
 
 function calcular(){
 
-let d=parseFloat(document.getElementById("diametro").value);
-let L=parseFloat(document.getElementById("longitud").value);
-let c=parseFloat(document.getElementById("cantidad").value);
+let largo=parseFloat(document.getElementById("largo").value);
 
-let peso=0.00617*d*d*L*c;
+let ancho=parseFloat(document.getElementById("ancho").value);
 
-let quintales=peso/45.36;
+let sep=parseFloat(document.getElementById("separacion").value);
+
+let varillasX=(ancho/sep)+1;
+
+let varillasY=(largo/sep)+1;
+
+let total=Math.ceil(varillasX)+Math.ceil(varillasY);
+
+let varillas6m=(total*largo)/6;
 
 document.getElementById("resultado").innerHTML=
 
-"Peso total: "+peso.toFixed(2)+" kg<br>"+
+"Varillas dirección X: "+Math.ceil(varillasX)+"<br>"+
 
-"Quintales: "+quintales.toFixed(2);
+"Varillas dirección Y: "+Math.ceil(varillasY)+"<br><br>"+
+
+
+
+"Varillas en presentacion de (6m): "+Math.ceil(varillas6m);
+
 
 }
 
 </script>
 
 </body>
+
 </html>
