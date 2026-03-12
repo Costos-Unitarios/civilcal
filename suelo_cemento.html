@@ -46,6 +46,17 @@
 
 <input id="espesor" type="number" placeholder="Espesor (m)">
 
+<br>
+
+<select id="proporcion">
+
+<option value="15">Proporción 15:1</option>
+<option value="20">Proporción 20:1</option>
+<option value="25">Proporción 25:1</option>
+<option value="30">Proporción 30:1</option>
+
+</select>
+
 <br><br>
 
 <button onclick="calcular()">Calcular</button>
@@ -64,24 +75,32 @@ let ancho=parseFloat(document.getElementById("ancho").value);
 
 let espesor=parseFloat(document.getElementById("espesor").value);
 
+let proporcion=parseFloat(document.getElementById("proporcion").value);
+
 let volumen=largo*ancho*espesor;
 
-let cemento=volumen*6;
+let partesTotales=proporcion+1;
 
-let agua=volumen*120;
+let cemento=volumen/partesTotales;
+
+let tierra=volumen*(proporcion/partesTotales);
+
+let sacos=cemento/0.035;
 
 document.getElementById("resultado").innerHTML=
 
-"Volumen suelo: "+volumen.toFixed(2)+" m³<br><br>"+
+"Volumen total: "+volumen.toFixed(2)+" m³<br><br>"+
 
-"Cemento: "+Math.ceil(cemento)+" sacos<br>"+
+"Tierra blanca: "+tierra.toFixed(2)+" m³<br><br>"+
 
-"Agua: "+agua.toFixed(0)+" litros";
+"Cemento: "+cemento.toFixed(2)+" m³<br><br>"+
+
+"Sacos de cemento: "+Math.ceil(sacos);
 
 }
 
 </script>
-
 </body>
+
 
 </html>
