@@ -167,8 +167,19 @@ font-size:22px;
 }
 
 .contenedor{
-padding:15px;
+
+background-image: url("alcaldia.png");
+
+background-size: cover;
+
+background-position: center;
+
+background-repeat: no-repeat;
+
+min-height: 100vh;
+
 }
+
 
 .menu a{
 display:block;
@@ -176,3 +187,4 @@ margin:5px 0;
 }
 
 }
+
