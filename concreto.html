@@ -36,18 +36,17 @@
 
 <h2>Calculadora de Concreto</h2>
 
-<input id="largo" type="number" placeholder="Largo (m)"><br>
+<input id="volumen" type="number" placeholder="Volumen (m³)">
 
-<input id="ancho" type="number" placeholder="Ancho (m)"><br>
+<br>
 
-<input id="alto" type="number" placeholder="Espesor (m)"><br><br>
+<select id="fc">
 
-<select id="resistencia">
-
-<option value="7">f'c 180 kg/cm²</option>
-<option value="8">f'c 210 kg/cm²</option>
-<option value="9">f'c 250 kg/cm²</option>
-<option value="10">f'c 280 kg/cm²</option>
+<option value="140">f'c 140 kg/cm²</option>
+<option value="180">f'c 180 kg/cm²</option>
+<option value="210">f'c 210 kg/cm²</option>
+<option value="250">f'c 250 kg/cm²</option>
+<option value="280">f'c 280 kg/cm²</option>
 
 </select>
 
@@ -56,46 +55,77 @@
 <button onclick="calcular()">Calcular</button>
 
 <p id="resultado"></p>
-
 </div>
 
 <script>
 
 function calcular(){
 
-let largo=parseFloat(document.getElementById("largo").value);
-let ancho=parseFloat(document.getElementById("ancho").value);
-let alto=parseFloat(document.getElementById("alto").value);
+let volumen=parseFloat(document.getElementById("volumen").value);
 
-let sacos_m3=parseFloat(document.getElementById("resistencia").value);
-let precio=parseFloat(document.getElementById("precio").value);
+let fc=document.getElementById("fc").value;
 
-let volumen=largo*ancho*alto;
+let cemento, arena, grava;
 
-let cemento=volumen*sacos_m3;
-let arena=volumen*0.5;
-let grava=volumen*0.8;
+if(fc==140){
 
-let mixer=volumen/7;
+cemento=6;
+arena=0.56;
+grava=0.84;
 
-let costo=cemento*precio;
+}
+
+if(fc==180){
+
+cemento=7;
+arena=0.54;
+grava=0.82;
+
+}
+
+if(fc==210){
+
+cemento=8;
+arena=0.50;
+grava=0.78;
+
+}
+
+if(fc==250){
+
+cemento=9;
+arena=0.47;
+grava=0.74;
+
+}
+
+if(fc==280){
+
+cemento=10;
+arena=0.44;
+grava=0.70;
+
+}
+
+let totalCemento=cemento*volumen;
+
+let totalArena=arena*volumen;
+
+let totalGrava=grava*volumen;
 
 document.getElementById("resultado").innerHTML=
 
-"<b>Volumen:</b> "+volumen.toFixed(2)+" m³<br><br>"+
+"Cemento: "+Math.ceil(totalCemento)+" sacos<br><br>"+
 
-"<b>Cemento:</b> "+cemento.toFixed(1)+" sacos<br>"+
+"Arena: "+totalArena.toFixed(2)+" m³<br><br>"+
 
-"<b>Arena:</b> "+arena.toFixed(2)+" m³<br>"+
-
-"<b>Grava:</b> "+grava.toFixed(2)+" m³<br><br>"+
-
+"Grava: "+totalGrava.toFixed(2)+" m³";
 
 }
 
 </script>
-
 </body>
 
 </html>
+
 
