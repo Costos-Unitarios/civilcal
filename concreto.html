@@ -36,7 +36,11 @@
 
 <h2>Calculadora de Concreto</h2>
 
-<input id="volumen" type="number" placeholder="Volumen (m³)">
+<input id="largo" type="number" placeholder="Largo (m)">
+
+<input id="ancho" type="number" placeholder="Ancho (m)">
+
+<input id="espesor" type="number" placeholder="Espesor (m)">
 
 <br>
 
@@ -61,11 +65,17 @@
 
 function calcular(){
 
-let volumen=parseFloat(document.getElementById("volumen").value);
+let largo=parseFloat(document.getElementById("largo").value);
+
+let ancho=parseFloat(document.getElementById("ancho").value);
+
+let espesor=parseFloat(document.getElementById("espesor").value);
 
 let fc=document.getElementById("fc").value;
 
-let cemento, arena, grava;
+let volumen=largo*ancho*espesor;
+
+let cemento,arena,grava;
 
 if(fc==140){
 
@@ -115,6 +125,8 @@ let totalGrava=grava*volumen;
 
 document.getElementById("resultado").innerHTML=
 
+"Volumen de concreto: "+volumen.toFixed(2)+" m³<br><br>"+
+
 "Cemento: "+Math.ceil(totalCemento)+" sacos<br><br>"+
 
 "Arena: "+totalArena.toFixed(2)+" m³<br><br>"+
@@ -127,5 +139,6 @@ document.getElementById("resultado").innerHTML=
 </body>
 
 </html>
+
 
 
