@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Muro de Mampostería</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="menu">
+
+<a href="index.html" >Inicio</a>
+<a href="concreto.html">Concreto</a>
+<a href="bloques.html">Bloques</a>
+<a href="acero.html">Acero</a>
+<a href="excavacion.html">Excavación</a>
+<a href="pendiente.html">Pendiente</a>
+<a href="zapata.html">Zapata</a>
+<a href="mamposteria.html" class="active">Mamposteria</a>
+<a href="suelo_cemento.html">Suelo Cemento</a>
+<a href="tubos.html">Tubos</a>
+<a href="columna_estribos.html">Columnas de estribos</a>
+<a href="columna.html">Columna</a>
+<a href="pintura.html">Pintura</a>
+<a href="varillas.html">Varilla</a>
+</div>
+
+<div class="contenedor">
+
+<h2>Calculadora de Muro de Mampostería</h2>
+
+<input id="largo" type="number" placeholder="Longitud muro (m)">
+
+<br>
+
+<input id="alto" type="number" placeholder="Altura muro (m)">
+
+<br>
+
+<input id="espesor" type="number" placeholder="Espesor muro (m)">
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let largo=parseFloat(document.getElementById("largo").value);
+
+let alto=parseFloat(document.getElementById("alto").value);
+
+let espesor=parseFloat(document.getElementById("espesor").value);
+
+let volumen=largo*alto*espesor;
+
+let piedra=volumen*0.70;
+
+let mortero=volumen*0.30;
+
+let cemento=mortero*7.5;
+
+let arena=mortero*1.05;
+
+let agua=mortero*0.21;
+
+document.getElementById("resultado").innerHTML=
+
+"Volumen del muro: "+volumen.toFixed(2)+" m³<br><br>"+
+
+"Piedra: "+piedra.toFixed(2)+" m³<br>"+
+
+"Mortero: "+mortero.toFixed(2)+" m³<br><br>"+
+
+"Cemento: "+Math.ceil(cemento)+" sacos<br>"+
+
+"Arena: "+arena.toFixed(2)+" m³<br>"+
+
+"Agua: "+agua.toFixed(2)+" m³";
+
+}
+
+</script>
+
+</body>
+
+</html>
