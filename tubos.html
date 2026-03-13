@@ -29,6 +29,7 @@
 <a href="columna.html">Columna</a>
 <a href="pintura.html">Pintura</a>
 <a href="varillas.html">Varilla</a>
+<a href="juntas.html">Juntas</a>
 </div>
 
 
@@ -36,13 +37,7 @@
 
 <h2>Calculadora de Tubos</h2>
 
-<input id="diametro" type="number" placeholder="Diámetro del tubo (m)">
-
-<br>
-
-<input id="longitud" type="number" placeholder="Longitud del tubo (m)">
-
-<br><br>
+<input type="number" id="longitud" placeholder="Ingres la longitud en metros. Ejemplo: 25">
 
 <button onclick="calcular()">Calcular</button>
 
@@ -51,29 +46,27 @@
 </div>
 
 <script>
-
 function calcular(){
 
-let D=parseFloat(document.getElementById("diametro").value);
+let longitud = parseFloat(document.getElementById("longitud").value);
 
-let L=parseFloat(document.getElementById("longitud").value);
-
-let areaInterna=(Math.PI*D*D)/4;
-
-let areaSuperficie=Math.PI*D*L;
-
-let volumen=areaInterna*L;
-
-document.getElementById("resultado").innerHTML=
-
-"Área interna: "+areaInterna.toFixed(3)+" m²<br><br>"+
-
-"Área superficial: "+areaSuperficie.toFixed(3)+" m²<br><br>"+
-
-"Volumen interno: "+volumen.toFixed(3)+" m³";
-
+if(isNaN(longitud) || longitud <= 0){
+    alert("Ingrese una longitud válida");
+    return;
 }
 
+let tubos = Math.ceil(longitud / 6);
+let uniones = tubos - 1;
+
+if(uniones < 0){
+    uniones = 0;
+}
+
+document.getElementById("resultado").innerHTML =
+" Tubos de 6 m: " + tubos + "<br>" +
+" Uniones: " + uniones;
+
+}
 </script>
 
 </body>
